@@ -21,21 +21,30 @@ BOOST_AUTO_TEST_CASE(mysmiley_01)
 {
 Point smiley_ctr {100,100};
 //Smiley sm { smiley_ctr, 50};
-Smiley sm{ {100,100}, 50 };
+//Smiley sm{ {100,100}, 50 };
+Smiley *ps = new Smiley {smiley_ctr, 50};
 
 // Circle mouth { Point {50,25}, 10 };
-Circle mouth { {50,25}, 10 };
-sm.set_mouth( &mouth );
+//Circle mouth { {50,25}, 10 };
+Circle *m = new Circle { {50,25}, 10};
 
-Circle eye01 { {40,20}, 15};
-Circle eye02 { {60, 20}, 15};
+//sm.set_mouth( &mouth );
+ps->set_mouth(m);
 
-sm.add_eye( &eye01 ); 
-sm.add_eye( &eye02 );
+//Circle eye01 { {40,20}, 15};
+//Circle eye02 { {60, 20}, 15};
 
-sm.draw();
+Circle *e1 = new Circle{ { 40,20 }, 15 };
+Circle *e2 = new Circle { {60,20}, 15 };
 
-BOOST_CHECK(1 == 1); // dummy check
+ps->add_eye( e1); 
+ps->add_eye( e2 );
+
+ps->draw();
+
+delete ps, e1, e2, m;
+
+// BOOST_CHECK(1 == 1); // dummy check
 }
 
 BOOST_AUTO_TEST_SUITE_END()
