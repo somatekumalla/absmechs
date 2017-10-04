@@ -1,6 +1,7 @@
 #pragma once
 #include <initializer_list> // std::initializer_list
 #include <algorithm> // std::copy(..)
+#include <utility> // std::move(..)
 
 class Vector
 {
@@ -17,9 +18,15 @@ public:
 
   Vector(std::initializer_list<double>); // initialize with a list
 
-  
+  Vector(const Vector& a);  // copy constructor
+
+  Vector& operator=(const Vector& a); // copy assignment
+
   void push_back(double); // add element at end increasing the size by one
 
+  Vector(Vector&& a); // Move constructor
+
+  Vector& operator=(Vector&& a); // Move assignment
 
   ~Vector() {
     delete[] elem;  // destructor : release resources

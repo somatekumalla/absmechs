@@ -35,6 +35,12 @@ public:
   virtual void rotate(int angle) = 0;
   virtual ~Shape() {} // destructor
 
+  //Shape(const Shape& ) = delete; // no copy operations
+  //Shape& operator=(const Shape& ) = delete;
+
+  //Shape(Shape&& ) = delete; // no move operations
+  //Shape& operator=(Shape&& ) = delete;
+
 };
 
 

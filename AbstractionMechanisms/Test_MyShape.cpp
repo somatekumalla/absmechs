@@ -2,6 +2,7 @@
 
 #include "MyShape.h"
 #include "boost\test\unit_test.hpp"
+#include <memory> // needed for std::unique_ptr
 
 BOOST_AUTO_TEST_SUITE(abs_mech_ts)
 
@@ -46,5 +47,18 @@ delete ps, e1, e2, m;
 
 // BOOST_CHECK(1 == 1); // dummy check
 }
+
+BOOST_AUTO_TEST_CASE(mysmiley_02_smartptr)
+{
+std::unique_ptr<Circle> m( new Circle {{50,25}, 10});
+auto p = m.get();
+
+BOOST_CHECK( p->get_radius() == 10);
+BOOST_CHECK( p->center().getx() == 50);
+BOOST_CHECK(p->center().gety() == 25);
+}
+
+
+
 
 BOOST_AUTO_TEST_SUITE_END()
