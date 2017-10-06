@@ -46,14 +46,14 @@ BOOST_AUTO_TEST_CASE(use_01)
   Vector_container vc{ 1,3,5,7,9 };
   List_container lc{ 2,4,6,8,10 };
 
-  std::cout << "--- Begin, Test Case : use_01 ---\n";
-  use(vc);
+  // std::cout << "--- Begin, Test Case : use_01 ---\n";
+  // use(vc);
   BOOST_CHECK(vc[2] == 5);
 
-  use(lc);
+  // use(lc);
   BOOST_CHECK(std::abs(lc[2] - 6) < 0.00001);
   
-  std::cout << "--- End, Test Case : use_01 ---\n";
+  // std::cout << "--- End, Test Case : use_01 ---\n";
 }
 
   BOOST_AUTO_TEST_SUITE_END()
